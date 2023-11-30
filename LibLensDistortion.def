@@ -1,0 +1,16 @@
+LIBRARY 
+EXPORTS
+  calArgs=calArgs_wrapper @1
+  distortPoint=distortPoint_wrapper @2
+  distortUV=distortUV_wrapper @3
+  genMesh=genMesh_wrapper @4
+  getEnlargeRatio=getEnlargeRatio_wrapper @5
+  getErrorMsg=getErrorMsg_wrapper @6
+  getGrowForUndistort=getGrowForUndistort_wrapper @7
+  getIntrinsic=getIntrinsic_wrapper @8
+  getSmartMeshPoints=getSmartMeshPoints_wrapper @9
+  getSmartMeshSize=getSmartMeshSize_wrapper @10
+  init=init_wrapper @11
+  loadJson=loadJson_wrapper @12
+  loadJsonStr=loadJsonStr_wrapper @13
+  setResolution=setResolution_wrapper @14
