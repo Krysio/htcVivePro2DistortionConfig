@@ -1,5 +1,8 @@
 #include <windows.h>
 #include <stdio.h>
+#include <string>
+#include <fstream>
+#include <streambuf>
 #include "hook_macro.h"
 
 HINSTANCE mHinst = 0, mHinstDLL = 0;
@@ -34,7 +37,17 @@ inline void log_info(const char* info) {
 }
 #endif
 
-#include "empty.h"
+/************************************/
+
+std::ifstream configFile("C:\\Program Files (x86)\\VIVE\\Updater\\App\\ViveVRRuntime\\ViveVR\\ViveVRServer\\drivers\\vive_lh\\bin\\win64\\distortion.config.json");
+std::string customConfig((std::istreambuf_iterator<char>(configFile)), std::istreambuf_iterator<char>());
+
+#define LOADJSONSTR
+FAKE(void, __cdecl, loadJsonStr, const char* originalJsonConfig) {
+	loadJsonStr_real(customConfig.c_str());
+}
+
+/************************************/
 
 inline void _hook_setup() {
 #ifdef CALARGS
